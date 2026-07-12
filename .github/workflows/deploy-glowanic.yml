@@ -23,11 +23,20 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Extract optimized static storefront
+      - name: Extract and configure optimized storefront
+        env:
+          AMAZON_ASSOCIATE_TAG: ${{ vars.AMAZON_ASSOCIATE_TAG }}
+          CONTACT_EMAIL: ${{ vars.CONTACT_EMAIL }}
         run: |
           rm -rf dist
           mkdir -p dist
           unzip -q glowanic-site.zip -d dist
+          if [ -n "$AMAZON_ASSOCIATE_TAG" ]; then
+            find dist -type f \( -name '*.html' -o -name '*.js' -o -name '*.xml' \) -exec sed -i "s/glowanic-20/$AMAZON_ASSOCIATE_TAG/g" {} +
+          fi
+          if [ -n "$CONTACT_EMAIL" ]; then
+            find dist -type f \( -name '*.html' -o -name '*.js' \) -exec sed -i "s/hello@glowanic.com/$CONTACT_EMAIL/g" {} +
+          fi
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
         with:
