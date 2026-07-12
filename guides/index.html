@@ -1,0 +1,8 @@
+---
+layout: default
+title: Beauty Guides
+description: Practical skincare, hair care and beauty tool guides designed to help
+  you choose and use products with confidence.
+permalink: /guides/
+---
+<section class="page-hero"><div class="container"><nav class="crumbs"><a href="/">Home</a> / Guides</nav><span class="eyebrow">Glowanic journal</span><h1>Beauty guidance before the buy</h1><p class="lead">Clear articles about routines, ingredients, styling technique and safe device use.</p></div></section><section class="section"><div class="container"><div class="guide-grid">{% for g in site.guides %}<a class="guide-card" href="{{ g.url }}"><span class="eyebrow">{{ g.category }}</span><h3>{{ g.title }}</h3><p>{{ g.description }}</p><b>Read guide →</b></a>{% endfor %}</div></div></section>

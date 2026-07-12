@@ -1,0 +1,27 @@
+title: Glowanic Beauty
+description: Independent beauty guides and curated Amazon picks for skincare, hair care and beauty tools.
+url: https://www.glowanic.com
+baseurl: ""
+permalink: pretty
+collections:
+  products:
+    output: true
+    permalink: /products/:name/
+  guides:
+    output: true
+    permalink: /guides/:name/
+defaults:
+  - scope:
+      path: ""
+      type: products
+    values:
+      layout: product
+  - scope:
+      path: ""
+      type: guides
+    values:
+      layout: guide
+exclude:
+  - README.md
+  - package.json
+  - scripts
