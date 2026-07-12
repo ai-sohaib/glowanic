@@ -1,8 +1,0 @@
----
-layout: default
-title: Shop Beauty Products
-description: Browse curated skincare, hair care and beauty tool recommendations with
-  practical descriptions and transparent Amazon shopping links.
-permalink: /shop/
----
-<section class="page-hero"><div class="container"><nav class="crumbs"><a href="/">Home</a> / Shop</nav><span class="eyebrow">Glowanic shop</span><h1>Beauty picks with a purpose</h1><p class="lead">Filter focused recommendations across skin care, hair care and beauty tools. Product prices and availability are confirmed on Amazon.</p></div></section><section class="section"><div class="container"><div class="disclosure"><b>Affiliate disclosure:</b> As an Amazon Associate I earn from qualifying purchases.</div><div class="filterbar"><input id="shop-search" type="search" placeholder="Search products or concerns"><select id="shop-category"><option value="all">All departments</option><option value="skincare">Skin Care</option><option value="haircare">Hair Care</option><option value="beauty-tools">Beauty Tools</option></select></div><div class="product-grid">{% assign sorted = site.products | sort: 'name' %}{% for p in sorted %}{% include product-card.html p=p %}{% endfor %}</div></div></section>
