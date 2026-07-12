@@ -17,9 +17,18 @@ Production storefront for **www.glowanic.com**, deployed automatically with GitH
 
 The complete optimized site is stored in `glowanic-site.zip`. The GitHub Actions workflow extracts it and deploys it to GitHub Pages on every push to `main`.
 
-## Amazon Associates tag
+## Configure Amazon Associates
 
-The current temporary tag inside `assets/data.js` is `glowanic-20`. Replace it with the exact Tracking ID issued in Amazon Associates Central before promoting the website.
+Open **Repository Settings → Secrets and variables → Actions → Variables** and create:
+
+- `AMAZON_ASSOCIATE_TAG` — your exact Amazon US Tracking ID, such as `glowanic-20`
+- `CONTACT_EMAIL` — your public website email, such as `hello@glowanic.com`
+
+The deployment workflow injects these values into the static site. Until the Amazon variable is added, the temporary tag `glowanic-20` remains in the links.
+
+## Custom domain
+
+The deployment package and repository use `www.glowanic.com` as the primary GitHub Pages domain. Keep the Hostinger `www` CNAME pointed to `ai-sohaib.github.io` and the four GitHub Pages A records on the apex domain.
 
 ## Affiliate disclosure
 
